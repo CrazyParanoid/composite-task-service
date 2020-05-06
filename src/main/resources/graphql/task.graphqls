@@ -1,0 +1,37 @@
+schema {
+  query: CompositeTaskQuery
+}
+
+type CompositeTaskQuery {
+  taskById(id: ID!): CompositeTask
+}
+
+type CompositeTask{
+  id:             ID
+  summary :       String!
+  description:    String
+  projectKey:     String
+  workFlowStatus: String
+  sprint:         Sprint
+  startDate:      String
+  endDate:        String
+  workHours:      Int
+  workDays:       Int
+  assignee:       Teammate
+  priority:       String
+}
+
+type Sprint {
+  id:           ID
+  name:         String!
+  projectKey:   String
+}
+
+type Teammate{
+  id:           ID
+  login:        String
+  name:         String
+  surName:      String
+  patronymic:   String
+}
+
